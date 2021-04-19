@@ -4,13 +4,19 @@ import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 
 
-export default function TrelloCard() {
-    return (
+export default function TrelloCard({text}) {
+  const styles = {
+    cardContainer: {
+      marginBottom: 8
+    }
+  };  
+  
+  return (
         <div>
-            <Card >
-      <CardContent>
+            <Card style = {styles.cardContainer} >
+      <CardContent >
         <Typography color="textSecondary" gutterBottom>
-          Word of the Day
+          {text}
         </Typography>
         
       </CardContent>

@@ -1,13 +1,34 @@
-import React from "react";
+import React, {Component} from "react";
 import TrelloList from "./TrelloList";
+import  {connect } from  "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      hi
-      <TrelloList/>
-    </div>
-  );
+
+
+class App extends Component {
+
+  render(){
+    const {lists} = this.props;
+    return (
+      <div className="App">
+        hi
+        <div style = {styles.listsContainer}>
+        {lists.map(list => <TrelloList title = {list.title} cards = {list.cards} />)}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const styles = {
+  listsContainer: {
+    display: "flex",
+    flexDirection: "row"
+  }
+}
+
+
+const mapStateToProps = state => ({
+  lists: state.lists
+})
+
+export default connect(mapStateToProps)(App);
