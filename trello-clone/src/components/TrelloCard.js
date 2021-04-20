@@ -7,7 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 export default function TrelloCard({text}) {
   const styles = {
     cardContainer: {
-      marginBottom: 8
+      marginBottom: 8,
+      background : "aliceblue"
     }
   };  
   
